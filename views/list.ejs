@@ -1,0 +1,29 @@
+<%- include('header'); -%>
+    <div class="box" id="heading">
+      <h1 > <%= listTitle %> </h1>
+    </div>
+
+  <div class="box">
+    <% if(flag){ %>
+      <div class="item">
+        <audio controls class="center">
+    <source src=<%= audioSource %> type="audio/wav">
+    Your browser does not support the audio element.
+       </audio>
+     </div>
+      <div class="item">
+        <p class="center"> File: <%= userfilename %></p>
+      </div>
+      <div class="item">
+        <p class="center"> Actual Emotion: <%= actual_emotion %></p>
+      </div>
+      <div class="item">
+        <p class="center"> Predicted Emotion: <%= pred_emotion %></p>
+      </div>
+  <%  } %>
+    <form class="item" action="/" method="post" enctype="multipart/form-data">
+      <input type="file" name="audio" accept=".wav">
+      <button type="submit" name="button" value="upload" onclick="myFunction()">+</button>
+    </form>
+  </div>
+  <%- include('footer'); -%>
