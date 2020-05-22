@@ -100,7 +100,7 @@ app.get("/",function(req,res)
 
   res.render("list",{listTitle:"Upload Your File",userfilename:userfilename,audioSource:path,flag:flag,pred_emotion:pred_emotion,actual_emotion:actual_emotion});
 })
-app.listen(3000,function()
+app.listen(process.env.PORT || 3000, function()
 {
   console.log("server started at port 3000");
 })
