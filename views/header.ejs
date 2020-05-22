@@ -16,7 +16,14 @@
             <li><a href="https://github.com/parv24/Speech-Emotion-Recognition">
               <img src="github.png" class="icon" alt="">
             </a></li>
-            <li><a href="http://localhost:3000/developers">
+            <li><a id="dev" href="#">
+              <script type="text/javascript">
+     document.getElementById("dev").onclick = function() {
+     var link = document.getElementById("dev");
+     link.setAttribute("href", link+"/developers");
+     return false;
+     }
+  </script>
               <img src="developers.png" class="icon" alt="">
             </a></li>
             <li><a href="https://colab.research.google.com/drive/1dpxFqnfx7xJGZjM6X1g8VAUKXnjeBzPT?usp=sharing">
