@@ -19,6 +19,7 @@
     "express-fileupload": "^1.1.7-alpha.3",
     "formidable": "^1.2.2",
     "meyda": "^5.0.1",
+    "reload": "^3.0.4",
     "web-audio-api": "^0.2.2",
     "window": "^4.2.7"
   }

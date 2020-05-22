@@ -60,8 +60,7 @@ app.post("/",function(req,res)
       const mfccPath="C:/Users/Dell/Desktop/webD/major/public/uploads/"+filename;
       var pythonProcess = spawn('python',["./mfcc.py", mfccPath]);
       pythonProcess.stdout.on('data', function(data){
-      var pdata=data.toString();
-      var res = pdata.split("/");
+      var res=(data.toString()).split("/");
       var feature=[]
       for(var j=0;j<res.length;j++)
       {
@@ -82,15 +81,24 @@ app.post("/",function(req,res)
     console.log("actual: "+actual_emotion);
       console.log("prediction:  "+pred_emotion);
 })
-      flag=true;
-      res.redirect("/");
     }
   })
   }
+  setTimeout(function()
+  {
+    flag=true;
+   res.redirect("/");
+ },4000);
+
+})
+app.get("/developers",function(req,res)
+{
+  res.render("developers",{listTitle:"Developers"});
 })
 app.get("/",function(req,res)
 {
-  res.render("list",{listTitle:"Speech Emotion Recognition",userfilename:userfilename,audioSource:path,flag:flag,pred_emotion:pred_emotion,actual_emotion:actual_emotion});
+
+  res.render("list",{listTitle:"Upload Your File",userfilename:userfilename,audioSource:path,flag:flag,pred_emotion:pred_emotion,actual_emotion:actual_emotion});
 })
 app.listen(3000,function()
 {

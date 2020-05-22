@@ -17,13 +17,18 @@
       <div class="item">
         <p class="center"> Actual Emotion: <%= actual_emotion %></p>
       </div>
-      <div class="item">
-        <p class="center"> Predicted Emotion: <%= pred_emotion %></p>
-      </div>
-  <%  } %>
-    <form class="item" action="/" method="post" enctype="multipart/form-data">
-      <input type="file" name="audio" accept=".wav">
-      <button type="submit" name="button" value="upload" onclick="myFunction()">+</button>
-    </form>
+    <%  if(actual_emotion===pred_emotion){ %>
+        <div class="item">
+          <p class="center correct"> Predicted Emotion: <%= pred_emotion %></p>
+        </div>
+    <%  }else{ %>
+        <div class="item">
+          <p class="center incorrect"> Predicted Emotion: <%= pred_emotion %></p>
+        </div>
+  <%  }} %>
+  <form class="item" action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="audio" accept=".wav">
+    <button type="submit" name="button" value="upload" onclick="window.location.reload()">+</button>
+  </form>
   </div>
   <%- include('footer'); -%>
